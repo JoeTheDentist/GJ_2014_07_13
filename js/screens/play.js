@@ -23,6 +23,15 @@ game.PlayScreen = me.ScreenObject.extend({
 
 		this.SushiGen = me.pool.pull("sushi_4", 0, 0);
 		me.game.world.addChild(this.SushiGen, 10);
+		
+		sticksCursor = new me.SpriteObject(0, 0, me.loader.getImage("sticks"));
+        sticksCursor.update = function() {
+            this.pos.x = me.input.mouse.pos.x - 10;
+            this.pos.y = me.input.mouse.pos.y - 10;
+           
+            return true;
+        }
+		me.game.world.addChild(sticksCursor, 1000);
 	},
 
 	/**
