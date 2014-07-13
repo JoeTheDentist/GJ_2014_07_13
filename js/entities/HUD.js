@@ -33,7 +33,21 @@ game.HUD.Container = me.ObjectContainer.extend({
         this.queue = [];
         
 		// add our child score object at the top left corner
-		this.addChild(new game.HUD.ScoreItem(640, 525));
+        this.score = new game.HUD.ScoreItem(640, 525);
+		this.addChild(this.score);
+	},
+    
+    /**
+	 *  action to perform when leaving this screen (state change)
+	 */
+	onDestroyEvent: function onDestroyEvent() {
+        console.log("cleaning HUD");
+        while (game.data.queue.length > 0) {
+            game.data.queue.shift();
+            sushi_obj = this.queue.shift();
+            this.removeChild(sushi_obj);
+        }
+        me.game.world.removeChild(this.score);
 	},
     
     queue_sushi: function(type){
@@ -43,7 +57,7 @@ game.HUD.Container = me.ObjectContainer.extend({
            this.queue.push(sushi_obj);
            this.addChild(sushi_obj);
         } else {
-            //
+            me.state.change(me.state.GAMEOVER);
         }
     },
     

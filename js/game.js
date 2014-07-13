@@ -8,7 +8,8 @@ var game = {
 		score : 0,
         speed : 1,
         queue : [],
-        max_size : 5
+        max_size : 5,
+        sushi_eaten : 0
 	},
 	
 	
@@ -44,12 +45,7 @@ var game = {
 	"loaded" : function () {
         // set the "Play/Ingame" Screen Object
 		me.state.set(me.state.PLAY, new game.PlayScreen());
-        
-        // register our player entity in the object pool
-        me.pool.register("sushi_1", game.SushiEntity, true);
-        me.pool.register("sushi_2", game.SushiEntity, true);
-        me.pool.register("sushi_3", game.SushiEntity, true);
-		me.pool.register("sushi_4", game.SushiGenerator, true);
+        me.state.set(me.state.GAMEOVER, new game.GameOverScreen());
         
         // enable the keyboard
 

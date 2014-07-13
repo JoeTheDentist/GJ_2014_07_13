@@ -29,17 +29,12 @@ game.SushiEntity = me.ObjectEntity.extend({
 				self.renderable.alpha = 0;
 				self.notEaten = false;
                 me.state.current().HUD.check_and_pop(self.name);
+                game.data.sushi_eaten += 1;
 			}
         }, true);
         // eaten or not?
         this.notEaten = true;
     },
- 
-    // call by the engine when colliding with another object
-    onCollision: function(res, obj) {
-
-    },
-	
  
     // manage the sushi movement
     update: function(dt) {
