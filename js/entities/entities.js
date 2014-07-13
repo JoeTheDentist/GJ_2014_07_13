@@ -6,15 +6,15 @@ game.SushiEntity = me.ObjectEntity.extend({
     init: function init(x, y, image) {
         var settings = {};
 		settings.image = me.loader.getImage(image);
-		settings.width = 128;
-		settings.height = 128;
-		settings.spritewidth = 128;
-		settings.spriteheight= 128; 
+		settings.width = 100;
+		settings.height = 100;
+		settings.spritewidth = 100;
+		settings.spriteheight= 100; 
         settings.name = image;
         this.parent(x, y , settings );
  
         // walking & jumping speed
-        this.setVelocity(4, 0);
+        this.setVelocity(5, 0);
          
         // make it collidable
         this.collidable = true;
@@ -77,7 +77,7 @@ game.SushiGenerator = me.Renderable.extend({
   init: function() {
     this.parent(new me.Vector2d(), 0, 0);
     this.alwaysUpdate = true;
-    this.pipeFrequency = 64;
+    this.pipeFrequency = 25;
 	this.alpha  = 0;
 	this.generate = 0;
 	this.sushis = [];
@@ -86,7 +86,7 @@ game.SushiGenerator = me.Renderable.extend({
   update: function(dt) {
     if (this.generate++ % this.pipeFrequency == 0) {
 	    rand = Math.floor((Math.random() * 100) + 1) % 3 + 1; 
-		var sushi = new game.SushiEntity(0, 225, "sushi_" + rand);
+		var sushi = new game.SushiEntity(0, 250, "sushi_" + rand);
 		me.game.world.addChild(sushi, 10);
 		this.sushis.push(sushi);
 		if (this.sushis.length > 5) {
