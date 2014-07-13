@@ -13,7 +13,7 @@ game.resources = [
     {name: "sushi_2", type: "image", src: "data/img/sprite/sushi/sushi_2.png"},
     {name: "sushi_3", type: "image", src: "data/img/sprite/sushi/sushi_3.png"},
     {name: "sushi_4", type: "image", src: "data/img/sprite/sushi/sushi_4.png"},
-    
+	
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
