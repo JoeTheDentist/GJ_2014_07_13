@@ -5,7 +5,8 @@ game.PlayScreen = me.ScreenObject.extend({
 	onResetEvent: function onResetEvent() {
         // load a level
         me.levelDirector.loadLevel("resto1");
-    
+        me.game.viewport.move(20, 0);
+        
 		// reset the score
 		game.data.score = 0;
 
@@ -13,7 +14,8 @@ game.PlayScreen = me.ScreenObject.extend({
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
 
-        this.HUD.queue_sushi('sushi_1');
+        rand = Math.floor((Math.random() * 100) + 1) % 3 + 1; 
+        this.HUD.queue_sushi('sushi_' + rand);
         
         var self = this;
         me.timer.setInterval(function() {
