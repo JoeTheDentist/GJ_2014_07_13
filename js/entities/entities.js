@@ -1,7 +1,7 @@
 /* --------------------------
 an shushi Entity
 ------------------------ */
-game.SushiEntity = me.ObjectEntity.extend({
+game.SushiEntity = me.CollectableEntity.extend({
     init: function(x, y, settings) {
            
         // save the area size defined in Tiled
@@ -22,6 +22,20 @@ game.SushiEntity = me.ObjectEntity.extend({
         // make it collidable
         this.collidable = true;
         this.type = me.game.ENEMY_OBJECT;
+        
+        // register mouse event
+        me.input.registerPointerEvent("pointerdown", this, this.touch.bind(this), true);
+        
+        // eaten or not?
+        this.notEaten = true;
+    },
+    
+    touch: function(e) {
+        if (this.notEaten) {
+          console.log("click !");
+          this.renderable.alpha= 0;
+          this.notEaten = false;
+        }
     },
  
     // call by the engine when colliding with another object
