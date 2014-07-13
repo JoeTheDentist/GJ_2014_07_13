@@ -17,8 +17,8 @@ game.PlayScreen = me.ScreenObject.extend({
         this.queue_sushi();
         
         me.timer.setInterval(function() {
-            game.data.speed += 0.05;
-        }, 5000);
+            game.data.speed += 0.01;
+        }, 500);
 
 		this.SushiGen = me.pool.pull("sushi_4", 0, 0);
 		me.game.world.addChild(this.SushiGen, 10);
