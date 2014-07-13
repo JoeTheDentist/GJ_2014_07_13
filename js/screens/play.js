@@ -33,6 +33,8 @@ game.PlayScreen = me.ScreenObject.extend({
             return true;
         }
 		me.game.world.addChild(sticksCursor, 1000);
+        
+        me.audio.playTrack("main_loop");
 	},
     
     queue_sushi: function() {
@@ -49,5 +51,6 @@ game.PlayScreen = me.ScreenObject.extend({
 	onDestroyEvent: function onDestroyEvent() {
 		me.game.world.removeChild(this.HUD);
 		me.game.world.removeChild(this.SushiGen);
+        me.audio.stopTrack();
 	}
 });
