@@ -6,8 +6,8 @@
 
 game.HUD = game.HUD || {};
 
-var xpos = 150;
-var yPos = 100;
+var xpos = 240;
+var yPos = 44;
 var cardSize = 64;
 var scoreBonus = 100;
 var xVelocity = 10;
