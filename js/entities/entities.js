@@ -62,10 +62,7 @@ game.SushiEntity = me.ObjectEntity.extend({
             this.parent(dt);
             return true;
         } 
-		
-		if (this.pos.x > 576) {
-			me.game.world.removeChild(this);
-		}
+
         return false;
     }
 });
@@ -86,10 +83,10 @@ game.SushiGenerator = me.Renderable.extend({
   update: function(dt) {
     if (this.generate++ % this.pipeFrequency == 0) {
 	    rand = Math.floor((Math.random() * 100) + 1) % 3 + 1; 
-		var sushi = new game.SushiEntity(0, 250, "sushi_" + rand);
+		var sushi = new game.SushiEntity(-63, 250, "sushi_" + rand);
 		me.game.world.addChild(sushi, 10);
 		this.sushis.push(sushi);
-		if (this.sushis.length > 5) {
+		if (this.sushis.length > 8) {
 			me.game.world.removeChild(this.sushis.shift());
 		}
     }

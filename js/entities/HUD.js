@@ -50,20 +50,18 @@ game.HUD.Container = me.ObjectContainer.extend({
     },
     
     check_and_pop: function(type){
-        if (game.data.queue.length != 0) {
-            console.log(type);
-            if (game.data.queue[0] == type) {
-                console.log('correct type');
-                game.data.score += scoreBonus;
-                game.data.queue.shift();
-                sushi_obj = this.queue.shift();
-                this.removeChild(sushi_obj);
-                return true;
-            } else
-            {
-                console.log('incorrect type');
-                return false;
-            }
+        if (game.data.queue[0] == type) {
+            console.log('correct type');
+            game.data.score += scoreBonus;
+            game.data.queue.shift();
+            sushi_obj = this.queue.shift();
+            this.removeChild(sushi_obj);
+            return true;
+        } else {
+            console.log('incorrect type');
+            game.data.score -= 4* scoreBonus;
+            if (game.data.score < 0) game.data.score = 0;
+            return false;
         }
     }
 });
@@ -152,10 +150,11 @@ game.HUD.SushiObjective = me.ObjectEntity.extend({
 	update : function (dt) {
     
         this.expected_pos = xpos + cardSize * me.state.current().HUD.queue.indexOf(this);
-        if (this.pos.x >= this.expected_pos) {
+        if (this.pos.x > this.expected_pos) {
             this.vel.x += -this.accel.x * me.timer.tick;     
         } else
         {
+            this.pos.x = this.expected_pos;
             this.vel.x = 0;
         }
         
