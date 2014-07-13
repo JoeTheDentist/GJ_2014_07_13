@@ -54,7 +54,7 @@ game.HUD.Container = me.ObjectContainer.extend({
             game.data.queue.shift();
             sushi_obj = this.queue.shift();
             this.removeChild(sushi_obj);
-            this.addChild(new game.HUD.HitScore(me.input.mouse.pos.x + 10, me.input.mouse.pos.y - 60, scoreBonus));
+            this.addChild(new game.HUD.HitScore(me.input.mouse.pos.x + 10, me.input.mouse.pos.y - 60, '+' + scoreBonus));
             return true;
         } else {
             console.log('incorrect type');
