@@ -11,10 +11,10 @@ var game = {
 	
 	// Run on page load.
 	"onload" : function () {
-	// Initialize the video.
-	if (!me.video.init("screen", 640, 480, true, 'auto')) {
-		alert("Your browser does not support HTML5 canvas.");
-		return;
+        // Initialize the video.
+        if (!me.video.init("screen", 768, 576, true, 'auto')) {
+            alert("Your browser does not support HTML5 canvas.");
+            return;
 	}
 
 	// add "#debug" to the URL to enable the debug Panel
@@ -43,6 +43,10 @@ var game = {
 		me.state.set(me.state.PLAY, new game.PlayScreen());
         
         // register our player entity in the object pool
+        me.pool.register("sushi_1", game.SushiEntity);
+        me.pool.register("sushi_2", game.SushiEntity);
+        me.pool.register("sushi_3", game.SushiEntity);
+        me.pool.register("sushi_4", game.SushiEntity);
         
         // enable the keyboard
 
