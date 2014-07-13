@@ -35,6 +35,7 @@ game.SushiEntity = me.CollectableEntity.extend({
           console.log("click !");
           this.renderable.alpha= 0;
           this.notEaten = false;
+          me.state.current().HUD.check_and_pop(this.name);
         }
     },
  
@@ -43,7 +44,7 @@ game.SushiEntity = me.CollectableEntity.extend({
 
     },
  
-    // manage the enemy movement
+    // manage the sushi movement
     update: function(dt) {
         // do nothing if not in viewport
         if (!this.inViewport)

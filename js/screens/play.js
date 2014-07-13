@@ -12,8 +12,14 @@ game.PlayScreen = me.ScreenObject.extend({
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
+        
+        this.HUD.queue_sushi('sushi_1');
+        
+        var self = this;
+        me.timer.setInterval(function() {
+            self.HUD.queue_sushi('sushi_1');
+        }, 2000);
 	},
-
 
 	/**
 	 *  action to perform when leaving this screen (state change)

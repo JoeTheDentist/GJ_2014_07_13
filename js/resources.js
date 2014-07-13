@@ -13,6 +13,13 @@ game.resources = [
     {name: "sushi_2", type: "image", src: "data/img/sprite/sushi/sushi_2.png"},
     {name: "sushi_3", type: "image", src: "data/img/sprite/sushi/sushi_3.png"},
     {name: "sushi_4", type: "image", src: "data/img/sprite/sushi/sushi_4.png"},
+    // sushi card
+    {name: "card_sushi_1", type: "image", src: "data/img/sprite/sushi_card/sushi_card_1.png"},
+    {name: "card_sushi_2", type: "image", src: "data/img/sprite/sushi_card/sushi_card_2.png"},
+    {name: "card_sushi_3", type: "image", src: "data/img/sprite/sushi_card/sushi_card_3.png"},
+    {name: "card_sushi_4", type: "image", src: "data/img/sprite/sushi_card/sushi_card_4.png"},
+    // game font
+    {name: "32x32_font", type:"image", src: "data/img/font/32x32_font.png"},
     
 	/* Atlases 
 	 * @example
