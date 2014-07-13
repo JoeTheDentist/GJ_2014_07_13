@@ -42,10 +42,8 @@ game.HUD.Container = me.ObjectContainer.extend({
            sushi_obj = new game.HUD.SushiObjective(xpos + (cardSize * game.data.queue.length), yPos, 'card_' + type);
            this.queue.push(sushi_obj);
            this.addChild(sushi_obj);
-        }
-        
-        if (this.queue.length != 0) {
-            this.queue[0].current = true;
+        } else {
+            this.addChild(new game.HUD.GameOver());
         }
     },
     
@@ -56,16 +54,17 @@ game.HUD.Container = me.ObjectContainer.extend({
             game.data.queue.shift();
             sushi_obj = this.queue.shift();
             this.removeChild(sushi_obj);
+            this.addChild(new game.HUD.HitScore(me.input.mouse.pos.x + 10, me.input.mouse.pos.y - 60, scoreBonus));
             return true;
         } else {
             console.log('incorrect type');
             game.data.score -= 4* scoreBonus;
             if (game.data.score < 0) game.data.score = 0;
+            this.addChild(new game.HUD.HitScore(me.input.mouse.pos.x + 10, me.input.mouse.pos.y - 60, -4*scoreBonus));
             return false;
         }
     }
 });
-
 
 /** 
  * a basic HUD item to display score
@@ -109,6 +108,34 @@ game.HUD.ScoreItem = me.Renderable.extend({
      */
     draw : function (context) {
         this.font.draw (context, game.data.score, this.pos.x, this.pos.y);
+    }
+});
+
+game.HUD.HitScore = me.Renderable.extend({	
+    /** 
+	 * constructor
+	 */
+	init: function(x, y, value) {
+		
+		// call the parent constructor 
+		// (size does not matter here)
+		this.parent(new me.Vector2d(x, y), 10, 10); 
+		
+         // create a font
+        this.font = new me.BitmapFont("32x32_font", 32);
+        this.font.set("right");
+        
+        this.value = value;
+        
+        var self = this;
+        me.timer.setTimeout(function() {me.state.current().HUD.removeChild(self); console.log('removed');} , 300, true);
+	},
+    
+    /**
+     * draw the score
+     */
+    draw : function (context) {
+        this.font.draw (context, this.value, this.pos.x, this.pos.y);
     }
 });
 
