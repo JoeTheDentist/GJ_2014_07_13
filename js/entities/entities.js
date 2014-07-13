@@ -69,22 +69,27 @@ game.SushiGenerator = me.Renderable.extend({
   init: function() {
     this.parent(new me.Vector2d(), 0, 0);
     this.alwaysUpdate = true;
-    this.pipeFrequency = 25;
+    this.pipeInterval = 25;
 	this.alpha  = 0;
 	this.generate = 0;
 	this.sushis = [];
+    this.lastSushi = 0;
   },
 
   update: function(dt) {
-    if (this.generate++ % this.pipeFrequency == 0) {
-	    rand = Math.floor((Math.random() * 100) + 1) % 3 + 1; 
+    this.lastSushi += dt;
+    this.pipeInterval = 25*20 / game.data.speed;
+    if (this.lastSushi > this.pipeInterval) {
+        this.lastSushi = 0;
+    	rand = Math.floor((Math.random() * 100) + 1) % 3 + 1; 
 		var sushi = new game.SushiEntity(-63, 250, "sushi_" + rand);
 		me.game.world.addChild(sushi, 10);
 		this.sushis.push(sushi);
-		if (this.sushis.length > 8) {
+		if (this.sushis.length > 8 * game.data.speed) {
 			me.game.world.removeChild(this.sushis.shift());
 		}
     }
+    
     return true;
   }
 

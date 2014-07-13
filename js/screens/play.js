@@ -19,11 +19,11 @@ game.PlayScreen = me.ScreenObject.extend({
 
         this.queue_sushi();
         
-        this.difficultyInterval = me.timer.setInterval(function() {
-            game.data.speed += 0.05;
-        }, 5000);
-        
         this.queueInterval = me.timer.setInterval(this.queue_sushi, 1500);
+        
+        this.difficultyInterval = me.timer.setInterval(function() {
+            game.data.speed += 0.005;
+        }, 500);
 
 		this.SushiGen = new game.SushiGenerator();
 		me.game.world.addChild(this.SushiGen, 10);
@@ -37,7 +37,9 @@ game.PlayScreen = me.ScreenObject.extend({
            
             return true;
         }
+
 		me.game.world.addChild(this.sticksCursor, 1000);
+        me.audio.playTrack("main_loop");
 	},
     
     queue_sushi: function() {
@@ -55,5 +57,6 @@ game.PlayScreen = me.ScreenObject.extend({
 		me.game.world.removeChild(this.HUD);
 		me.game.world.removeChild(this.SushiGen);
         me.game.world.removeChild(this.sticksCursor);
+        me.audio.stopTrack();
 	}
 });
