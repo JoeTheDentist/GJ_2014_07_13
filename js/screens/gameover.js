@@ -33,7 +33,7 @@ game.GameOverScreen = me.ScreenObject.extend({
             },
              
             draw : function (context) {
-                this.font.draw (context, "GAME OVER\nYOU THROW UP " + game.data.sushi_eaten + " SUSHIS\nYOUR SCORE IS " + game.data.score + " POINTS"
+                this.font.draw (context, "GAME OVER\nYOU THROW UP " + game.data.sushi_eaten + " SUSHIS\nYOUR SCORE IS " + game.data.score 
                 + "\n\nPRESS ENTER TO RESTART", 20, 240);
                 this.font.draw(context, this.scroller, this.scrollerpos, 440);
             },
