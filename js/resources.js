@@ -37,7 +37,7 @@ game.resources = [
     /*
      * Background music.
      */
-    // {name: "dst-inertexponent", type: "audio", src: "data/bgm/"},
+    {name: "main_loop", type: "audio", src: "data/bgm/"},
      
     /*
      * Sound effects.
