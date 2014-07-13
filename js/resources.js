@@ -21,7 +21,7 @@ game.resources = [
     // game font
     {name: "32x32_font", type:"image", src: "data/img/font/32x32_font.png"},
 	// cursor
-	{name: "sticks", type:"image", src: "data/img/sprite/sticks.png"},
+	{name: "sticks", type:"image", src: "data/img/sprite/sticks/sticks.png"},
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
