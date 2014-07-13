@@ -32,14 +32,18 @@ game.resources = [
 	 * {name: "example01", type: "tmx", src: "data/map/example01.tmx"},
 	 * {name: "example01", type: "tmx", src: "data/map/example01.json"},
  	 */
-    {name: "resto1", type: "tmx", src: "data/map/resto1.tmx"}
+    {name: "resto1", type: "tmx", src: "data/map/resto1.tmx"},
     
-	/* 
-     * Background music. 
+    /*
+     * Background music.
      */
+    // {name: "dst-inertexponent", type: "audio", src: "data/bgm/"},
      
-    /* 
-     * Sound effects. 
+    /*
+     * Sound effects.
      */
+    {name: "eat", type: "audio", src: "data/sfx/"},
+    {name: "puke", type: "audio", src: "data/sfx/"},
+    // {name: "jump",  type: "audio", src: "data/sfx/"}
     
 ];

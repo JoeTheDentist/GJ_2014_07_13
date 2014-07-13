@@ -50,6 +50,7 @@ game.HUD.Container = me.ObjectContainer.extend({
     check_and_pop: function(type){
         if (game.data.queue[0] == type) {
             console.log('correct type');
+            me.audio.play("eat");
             game.data.score += scoreBonus;
             game.data.queue.shift();
             sushi_obj = this.queue.shift();
@@ -58,6 +59,7 @@ game.HUD.Container = me.ObjectContainer.extend({
             return true;
         } else {
             console.log('incorrect type');
+            me.audio.play("puke");
             game.data.score -= 4* scoreBonus;
             if (game.data.score < 0) game.data.score = 0;
             this.addChild(new game.HUD.HitScore(me.input.mouse.pos.x + 10, me.input.mouse.pos.y - 60, -4*scoreBonus));
