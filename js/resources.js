@@ -20,7 +20,7 @@ game.resources = [
     {name: "card_sushi_4", type: "image", src: "data/img/sprite/sushi_card/sushi_card_4.png"},
     // game font
     {name: "32x32_font", type:"image", src: "data/img/font/32x32_font.png"},
-    
+
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
