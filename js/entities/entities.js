@@ -14,7 +14,7 @@ game.SushiEntity = me.ObjectEntity.extend({
         this.parent(x, y , settings );
  
         // walking & jumping speed
-        this.setVelocity(5, 0);
+        this.setVelocity(5 * game.data.speed, 0);
          
         // make it collidable
         this.collidable = true;

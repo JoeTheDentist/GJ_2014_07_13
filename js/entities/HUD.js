@@ -43,7 +43,7 @@ game.HUD.Container = me.ObjectContainer.extend({
            this.queue.push(sushi_obj);
            this.addChild(sushi_obj);
         } else {
-            this.addChild(new game.HUD.GameOver());
+            //
         }
     },
     
