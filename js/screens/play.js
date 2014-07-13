@@ -28,9 +28,10 @@ game.PlayScreen = me.ScreenObject.extend({
 		
 		sticksCursor = new me.SpriteObject(0, 0, me.loader.getImage("sticks"));
         sticksCursor.z = 300;
+		sticksCursor.alwaysUpdate = true;
         sticksCursor.update = function() {
-            this.pos.x = me.input.mouse.pos.x - 10;
-            this.pos.y = me.input.mouse.pos.y - 10;
+            this.pos.x = me.input.mouse.pos.x + 10;
+            this.pos.y = me.input.mouse.pos.y - 5;
            
             return true;
         }
